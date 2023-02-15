@@ -1,8 +1,12 @@
-.love{
-    background-color: #FFF;
+body{
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+    
 }
-h1{
-    position: absolute;
-    top: 50%;
-    right: 50%;
+#parent{
+    position: relative;
+    margin: auto;
+    max-width: 1024px;
+
 }
