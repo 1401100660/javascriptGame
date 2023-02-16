@@ -1,12 +1,23 @@
 body{
     margin: 0px;
     padding: 0px;
-    text-align: center;
-    
+    background-color: rgb(216, 226, 220);
 }
-#parent{
-    position: relative;
-    margin: auto;
-    max-width: 1024px;
+.alignsdf{
+    width:100px;height: 100px; background-color: red;
+}
+#contents{
+    
+    padding: 0px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    justify-content: center;
+    align-items: center;
 
+    margin: auto;
+    max-width: 720px;
+    background-color: rgb(8, 7, 5)
+}
+#buttons{
+    background-color: ;
 }
