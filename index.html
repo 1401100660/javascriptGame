@@ -1,30 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
+  <meta charset="UTF-8">
 
-    <title>The Egg</title>
-
-    <link rel="stylesheet" href="static/style.css">
-    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlDhC7XxJcrFWc-shLuTylnrIbN1zvr5EHPA&usqp=CAU">
-    <script src="static/p5/p5.js"></script>
-    <script src="static/p5/p5.sound.js"></script>
-
+  <link rel="stylesheet" href="style.css">
+  
+<script src="static/p5/p5.js"></script>
+<script src="static/jumperObject.js"></script>  
+<script src="movingBox.js"></script>
+<!--   link following libraries bellow p5 and link the library well -->
+<script defer src="https://unpkg.com/p5.collide2d"></script>
+  <title>box game</title>
 </head>
-<body>
-    <div id="contents">
-        <h1 style="font-size: 48px;">Reach The OvO</h1>
-        <div id="buttons"></div>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam id auctor libero. Pellentesque feugiat a risus id porta. Aenean eu viverra tortor. Pellentesque porttitor sapien pharetra tortor volutpat, id feugiat risus auctor. Proin rhoncus suscipit tortor non ullamcorper. Aenean in urna neque. Sed bibendum justo non eros cursus, vitae dictum magna cursus. Curabitur id velit placerat, dictum dolor quis, vehicula felis. Praesent eget rutrum sapien. Etiam tortor sapien, viverra vel mauris ac, mattis varius augue. Curabitur eu dui urna. Mauris ligula enim, ornare sed lacus ac, ultrices auctor lacus. Nulla congue convallis tincidunt. Nam eleifend semper convallis. Sed rutrum dolor vel risus rhoncus, ullamcorper convallis elit rhoncus. Sed vestibulum semper ligula, id tincidunt nisl sollicitudin ac.
-
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec ullamcorper, nulla et volutpat iaculis, metus erat tristique nisl, sed tempor nulla justo ut dolor. Fusce dapibus sapien ut est tincidunt, vitae finibus massa fermentum. Quisque egestas magna libero, ut accumsan quam feugiat eu. Duis lobortis semper nisi in semper. Donec sit amet rutrum quam. Duis viverra quam luctus, ullamcorper massa tempus, fermentum nulla. Aliquam congue in urna eu dictum. Donec ut nisl ac nisi aliquet rhoncus eu a urna. Etiam in lacinia turpis. Donec ac vestibulum risus. Fusce facilisis varius augue eu congue. Maecenas in ex nibh.
-
-Nulla lorem massa, faucibus a odio ac, semper tristique nulla. Phasellus iaculis suscipit ultrices. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin sed ipsum sed turpis volutpat ultrices. Vestibulum hendrerit ligula sed malesuada posuere. Sed id faucibus lectus. Nulla facilisi. Sed erat nibh, malesuada eu elementum sit amet, varius ac nisl. Nunc blandit turpis id nisi euismod rutrum. Praesent sagittis, nibh id volutpat consectetur, erat nunc sagittis lorem, nec porta metus ex non dolor. Nulla consectetur quam sit amet odio rutrum ultrices. Nam ultrices ac elit sit amet posuere.
-
-Praesent ultricies urna lectus, vel placerat neque consequat eu. Quisque eu suscipit risus. Vivamus ac elit vel dui luctus tincidunt et at ligula. Suspendisse hendrerit tristique ex at facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vel mollis lacus. Phasellus molestie rutrum tortor nec finibus. Nulla malesuada nec libero quis condimentum. Nam maximus nisi vitae feugiat semper. In a est lacus. Praesent aliquet lorem at felis vestibulum pulvinar. Curabitur ornare tempus neque non sagittis. Sed vitae cursus nibh, in placerat lorem. Etiam id congue nibh, condimentum pharetra felis. In placerat dictum purus vel rutrum.
-
-Duis ex erat, sodales sed arcu non, consectetur ultricies ipsum. Mauris malesuada, justo a volutpat eleifend, eros metus malesuada lectus, eu molestie orci ligula quis massa. Praesent consequat non tellus sed molestie. Sed feugiat dui ut arcu condimentum molestie. Sed malesuada cursus arcu nec sagittis. Donec volutpat ex tincidunt erat lobortis, et ultrices mi varius. Praesent vitae rhoncus velit, at rhoncus nisi. Donec feugiat libero eget purus tempus suscipit. Donec eleifend mauris non est vulputate suscipit. Fusce sagittis vitae leo nec egestas. Phasellus quis libero ut tortor vulputate porta.
-        </p>
-    </div>
+  
+<body style="margin: 0px;">
+  <h1 style="position: absolute;" id="asdfg"></h1>
+  <script>
+    function $(x){
+      return document.getElementById(x)
+    }
+    let h = window.innerHeight;
+    let w = window.innerWidth;
+    var jumper = new jumper()
+    var opponent = new killerBox()
+    
+    function setup(){
+      createCanvas(w,h)
+    }
+    
+    function draw(){
+      $("asdfg").innerHTML = jumper.x.toFixed(0)
+      clear()
+      jumper.show()
+      jumper.update()
+      
+    }
+    function keyPressed(){
+      if (keyCode == 32){
+        jumper.jump()
+      }
+      if (keyCode == LEFT_ARROW){
+        jumper.shift(1)
+      }
+      if (keyCode == RIGHT_ARROW){
+        jumper.shift(-1)
+      }
+    }
+  </script>
 </body>
 </html>

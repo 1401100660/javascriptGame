@@ -1,6 +1,8 @@
-body{
+/* body{
     margin: 0px;
     padding: 0px;
+    width:100%;
+    height: 100%;
     background-color: rgb(216, 226, 220);
 }
 .alignsdf{
@@ -9,15 +11,40 @@ body{
 #contents{
     
     padding: 0px;
+    margin: 0px;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     justify-content: center;
     align-items: center;
-
-    margin: auto;
     max-width: 720px;
-    background-color: rgb(8, 7, 5)
+    background-color: rgb(8, 7, 5);
+    color:rgb(137, 6, 32)
 }
 #buttons{
-    background-color: ;
+    background-color: rgb() ;
+} */
+
+.clean{
+    padding: 0px;
+    margin: 0px;
+}
+.base{
+    background-color: black;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+.parent{
+    background-color: white;
+    margin: auto;
+    padding: 0px;
+    max-width: 720px;
+    height: 100vh;
+}
+.inherit{
+    margin: inherit;
+    padding: inherit;
+    background-color: inherit;
+}
+.data{
+    position: absolute;
 }

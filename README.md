@@ -24,3 +24,4 @@ asian: hints
 white: privledge
 
 there is a timer for 5 minutes to get to the end. each minute equates to a day. 
+
