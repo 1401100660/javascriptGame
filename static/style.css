@@ -1,50 +1,83 @@
-/* body{
-    margin: 0px;
-    padding: 0px;
-    width:100%;
-    height: 100%;
-    background-color: rgb(216, 226, 220);
-}
-.alignsdf{
-    width:100px;height: 100px; background-color: red;
-}
-#contents{
-    
-    padding: 0px;
-    margin: 0px;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 720px;
-    background-color: rgb(8, 7, 5);
-    color:rgb(137, 6, 32)
+    height: 100vh; /* Sets the body height to 100% of the viewport height */
+    /* overflow: hidden; Optional: This line prevents scrollbars from appearing if the canvas slightly overflows the window */
+    background-color: #000000;
 }
-#buttons{
-    background-color: rgb() ;
-} */
-
-.clean{
-    padding: 0px;
-    margin: 0px;
-}
-.base{
-    background-color: black;
-    font-family: 'Times New Roman', Times, serif;
-    text-align: center;
-}
-.parent{
-    background-color: white;
-    margin: auto;
-    padding: 0px;
-    max-width: 720px;
-    height: 100vh;
-}
-.inherit{
-    margin: inherit;
-    padding: inherit;
-    background-color: inherit;
-}
-.data{
+canvas{
     position: absolute;
+}
+
+#parentCanvas{
+    color: white;
+    height: 100vh;
+    width: 720px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-button {
+    font-size: 24px;
+    background-color: #B71523;
+    /* makes the button have a curved edge */
+    border: none;
+    border-radius: 5px;
+    /* makes the button look fatter */
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+
+.start-button:hover {
+    background-color: #8c131d;
+}
+
+.title{
+    font-size: 48px;
+    display: flex;
+    position: relative;
+}
+
+.CB{
+
+    z-index: 1;
+    display: flex;
+}
+.contain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    z-index: 1;
+}
+.checkBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    padding: 5px;
+
+}
+
+.warningSpan{
+    font-size: 64px;
+    color: #8c131d;    
+}
+.checkBoxTitle{
+    font-size: 36px;
+    color: white;
+    border-bottom: 3px solid white;
+    border-top:  3px solid white;
+    margin-top: 9px;
+
 }
