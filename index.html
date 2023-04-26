@@ -1,17 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <title>The Egg</title>
-
-    <link rel="stylesheet" href="static/style.css">
-    <script src="static/"></script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Worm</title>
+  <link rel="stylesheet" href="static/style.css">
+  <link rel="icon" type="image/png" href="imga/TheWorm.png">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  
 </head>
 <body>
+	<main id="parentCanvas"></main>
+	<script>
+		// variable to have the game started or not, this could be used for restarting the game
+		let gameStarted;
+		// variables to get the window height and width
+		let width = window.innerWidth;
+		let height = window.innerHeight;
+		// variables that may or may not be used for the canvas
+		let canvasW = 720;
+		let canvasH = 720;
+		// initially thought to be used for animation of transitioning background color change, now for readability
+		let bgColor = '#000000';
 
-    <script>
-        
-    </script>
+		// p5 setup function
+		let titleSpan;
+		function setup() {
+			// the creation of a canvas element within an element called main as the container
+			createCanvas(canvasW, height);
+			// creation of the title of the game
+			titleSpan = createSpan("The Worm");
+			// giving it a class and parent in order to style it and have it fit into the same parent as canvas
+			titleSpan.addClass('title');
+			titleSpan.parent(canvas.parentElement)
+			// the initialization of button creation
+			createStart();
+		}
+		function draw() {
+			// to check if the game had started in the main menu
+			if (gameStarted) {
+				chapterUno(dif)
+			} else {
+				drawStartMenu();
+			}
+		}
+		function chapterUno(diffculty){
+			
+		}
+
+		// start menu is basically keep the canvas black
+		function drawStartMenu() {
+			background(bgColor);
+		}
+		let dif;
+		let playerColor;
+		// start button 
+		let startButton;
+		function createStart() {
+			startButton = createButton('Start Game');
+			startButton.addClass('start-button');
+
+			// Position the start button in the middle of the canvas
+			// startButton.position((width - startButton.width) / 2, (height - startButton.height) / 2);
+
+			// Make the button's position relative to the canvas
+			startButton.parent(canvas.parentElement);
+
+			// Creation of a check box
+			const container = createDiv();
+			container.addClass("contain")
+			container.parent(canvas.parentElement)
+			const containerCB = createDiv();
+			checkBoxTitle = createSpan();
+			containerCB.addClass('CB');
+  			containerCB.parent(container);
+			blackColorBox = createCheckbox('Black', false);
+			blackColorBox.parent(containerCB);
+			blackColorBox.addClass('checkBox');
+			blackColorBox.changed(() => {
+				if (blackColorBox.checked()) {
+					playerColor = color(0);
+					dif = 1;
+					whiteColorBox.checked(false);
+					yellowColorBox.checked(false);
+				}
+			});
+
+			whiteColorBox = createCheckbox('White', false);
+			whiteColorBox.parent(containerCB);
+			whiteColorBox.addClass('checkBox');
+			whiteColorBox.changed(() => {
+				if (whiteColorBox.checked()) {
+					playerColor = color(255);
+					dif = 3;
+					blackColorBox.checked(false);
+					yellowColorBox.checked(false);
+				}
+			});
+
+			yellowColorBox = createCheckbox('Yellow', false);
+			yellowColorBox.parent(containerCB);
+			yellowColorBox.addClass('checkBox');
+			yellowColorBox.changed(() => {
+				if (yellowColorBox.checked()) {
+					playerColor	 = color(255, 255, 0);
+					dif = 2;
+					blackColorBox.checked(false);
+					whiteColorBox.checked(false);
+				}
+			});
+
+			checkBoxTitle = createSpan("Player Color Customization");
+			checkBoxTitle.addClass("checkBoxTitle")
+			checkBoxTitle.parent(container)
+			
+			// Uses checked() function from p5.Element object, would have never found this
+			function anyCheckboxChecked() {
+				// || is the (or) operator
+				return blackColorBox.checked() || whiteColorBox.checked() || yellowColorBox.checked();
+			}
+			let buttonClickCount = 0;
+			startButton.mousePressed(() => {
+				if (anyCheckboxChecked()){
+					gameStarted = true;
+					startButton.hide();
+					titleSpan.hide();
+					container.hide()
+					buttonClickCount = 0
+				}else{
+					buttonClickCount ++
+					
+					if (buttonClickCount > 3){window.alert("Cmon you daft worm");window.location.href="https://youtu.be/2dbR2JZmlWo";} //very controversial line of code
+					warningSpan = createSpan("PICK A COLOR");
+					warningSpan.parent(container)
+					warningSpan.addClass('warningSpan')
+				};
+				
+			});
+		}
+	</script>
 </body>
 </html>

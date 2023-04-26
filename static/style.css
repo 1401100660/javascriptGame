@@ -1,1 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Sets the body height to 100% of the viewport height */
+    /* overflow: hidden; Optional: This line prevents scrollbars from appearing if the canvas slightly overflows the window */
+    background-color: #000000;
+}
+canvas{
+    position: absolute;
+}
 
+#parentCanvas{
+    color: white;
+    height: 100vh;
+    width: 720px;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-button {
+    font-size: 24px;
+    background-color: #B71523;
+    /* makes the button have a curved edge */
+    border: none;
+    border-radius: 5px;
+    /* makes the button look fatter */
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    text-align: center;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+
+.start-button:hover {
+    background-color: #8c131d;
+}
+
+.title{
+    font-size: 48px;
+    display: flex;
+    position: relative;
+}
+
+.CB{
+
+    z-index: 1;
+    display: flex;
+}
+.contain{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    z-index: 1;
+}
+.checkBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    padding: 5px;
+
+}
+
+.warningSpan{
+    font-size: 64px;
+    color: #8c131d;    
+}
+.checkBoxTitle{
+    font-size: 36px;
+    color: white;
+    border-bottom: 3px solid white;
+    border-top:  3px solid white;
+    margin-top: 9px;
+
+}
